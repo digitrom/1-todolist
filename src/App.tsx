@@ -10,11 +10,15 @@ function App() {
         {id: 2, title: "CSS", isDone: true},
         {id: 3, title: "JS/TS", isDone: false},
     ]
-
+    const tasks_2: Array<TaskType> = [
+        {id: 1, title: "Monitor", isDone: false},
+        {id: 2, title: "Keyboard", isDone: false},
+        {id: 3, title: "Headphones", isDone: true},
+    ]
     return (
         <div className="App">
           <TodoList title={todoListTitle_1} tasks={tasks_1}/>
-          {/*<TodoList title={todoListTitle_2} tasks={tasks_2}/>*/}
+          <TodoList title={todoListTitle_2} tasks={tasks_2}/>
         </div>
     );
 }
