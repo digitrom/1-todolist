@@ -17,12 +17,11 @@ export type TaskType = {
 const TodoList: React.FC<TodoListPropsType> = (props) => {
     let tasksList = props.tasks.length
         ? props.tasks.map((task: TaskType) => {
-            const removeTask = () => props.removeTask(task.id)
             return (
                 <li>
                     <input type="checkbox" checked={task.isDone}/>
                     <span>{task.title}</span>
-                    <button onClick={removeTask}>x</button>
+                    <button onClick={() => props.removeTask(task.id)}>x</button>
                 </li>
             )
         })
