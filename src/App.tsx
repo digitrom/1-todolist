@@ -15,6 +15,7 @@ function App() {
         {id: v1(), title: "JS/TS", isDone: false},
     ])
     // console.log(result)
+    
 
     /*    const tasks_2: Array<TaskType> = [
             {id: 1, title: "Monitor", isDone: false},
@@ -22,17 +23,12 @@ function App() {
             {id: 3, title: "Headphones", isDone: true},
         ]*/
     const [filter, setFilter] = useState<FilterValuesType>("all");
-
     const changeFilter = (filter: FilterValuesType) => {
         setFilter(filter)
     }
-
     const removeTask = (taskId: string) => {
         setTasks(tasks.filter(task => task.id !== taskId))
     }
-
-
-
     const addTask =(title: string) => {
 const newTask: TaskType = {
     // id: Number(new Date()),
@@ -42,6 +38,9 @@ const newTask: TaskType = {
 }
 //создаем новый массив не изменяя исходный(иммутабельно) ... spread, и добавляем новую таску
  setTasks([...tasks, newTask])
+    }
+    const changeTaskStatus = (taskId: string, isDone: boolean) => {
+       setTasks(tasks.map((t) => t.id === taskId ? {...t, isDone: isDone} : t))
     }
 
 
@@ -66,6 +65,8 @@ const newTask: TaskType = {
                 removeTask={removeTask}
                 changeFilter={changeFilter}
                 addTask={addTask}
+                changeTaskStatus={changeTaskStatus}
+                filter={filter}
             />
             {/*<TodoList title={todoListTitle_2} tasks={tasks_2}/>*/}
         </div>
