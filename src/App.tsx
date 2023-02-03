@@ -3,7 +3,7 @@ import './App.css';
 import {Todolist} from './Todolist';
 import {TaskType} from "../src1/TodoList";
 
-export type FilterValuesType = "all" | "active" | "completed";
+export type FilterValuesType = "all" | "active" | "completed" | "three";
 
 //Hi guys!
 //1. Let's create a 'DELETE ALL TASKS' button, and place it above the filter buttons
@@ -54,6 +54,10 @@ function App() {
     if (filter === "completed") {
         tasksForTodolist = tasks.filter(t => t.isDone === true);
     }
+    if (filter === "three") {
+        tasksForTodolist = tasks.filter(t => t.id < 4);
+    }
+
 
     function changeFilter(value: FilterValuesType) {
         setFilter(value);
